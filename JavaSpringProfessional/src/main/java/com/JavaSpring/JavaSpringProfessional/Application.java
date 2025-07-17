@@ -24,6 +24,7 @@ public class Application {
 		System.out.print("Informe o valor: ");
 		double salario = sc.nextDouble();
 
+
 		Employee employee = new Employee(name, salario);
 		SalaryService salaryService = new SalaryService();
 
@@ -33,8 +34,8 @@ public class Application {
 		System.out.printf("Salário bruto: %.2f\n", employee.getGrossSalary());
 		System.out.printf(" Salario liquido = %.2f ", SalarioComDesconto);
 
+
 	}
 
 }
 
-		//System.out.printf("Nome resumido: %.3s%n", employee.getName());
