@@ -8,13 +8,16 @@ public class SalaryService {
 
     public double netSalary(Employee employee) {
 
-        double salarioBruto = employee.getGrossSalary();
-
+        /*double salarioBruto = employee.getGrossSalary();
         double resultTaxService = taxService.tax(salarioBruto);
         double reusltPensionService = pensionService.discount(salarioBruto);
+        double  salarioLiquido  = salarioBruto - reusltPensionService - resultTaxService;*/
 
-        double  salarioLiquido  = salarioBruto - reusltPensionService - resultTaxService;
-        return salarioLiquido;
+        double resultadoSalarioBruto = employee.getGrossSalary() -
+                taxService.tax(employee.getGrossSalary()) -
+                pensionService.discount(employee.getGrossSalary());
+
+        return resultadoSalarioBruto;
     }
 }
 
