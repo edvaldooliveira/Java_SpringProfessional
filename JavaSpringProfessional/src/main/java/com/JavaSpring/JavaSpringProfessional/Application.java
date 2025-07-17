@@ -1,6 +1,8 @@
 package com.JavaSpring.JavaSpringProfessional;
 
+import com.JavaSpring.entities.Employee;
 import com.JavaSpring.service.PensionService;
+import com.JavaSpring.service.SalaryService;
 import com.JavaSpring.service.TaxService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,28 +17,24 @@ public class Application {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("\nInforme a taxa: ");
-		double taxa = sc.nextDouble();
 
-		System.out.print("Informe Pension Service: ");
-		double pension = sc.nextDouble();
+		System.out.printf("\nInforme o nome: ");
+		String name = sc.nextLine();
 
-		TaxService taxService = new TaxService();
-		PensionService pensionService = new PensionService();
+		System.out.print("Informe o valor: ");
+		double salario = sc.nextDouble();
 
-	double resultado =	taxService.tax(taxa);
-		System.out.printf("\n Tax: %.2f\n ",resultado);
+		Employee employee = new Employee(name, salario);
+		SalaryService salaryService = new SalaryService();
 
-		double resultadoPension = pensionService.discount(pension);
-		System.out.printf("Discount: %.2f ", resultadoPension);
+	    double SalarioComDesconto  = salaryService.netSalary(employee);
 
-
-
-
-
-
+		System.out.printf("\n Nome : %s%n ", employee.getName());
+		System.out.printf("Salário bruto: %.2f\n", employee.getGrossSalary());
+		System.out.printf(" Salario liquido = %.2f ", SalarioComDesconto);
 
 	}
 
 }
 
+		//System.out.printf("Nome resumido: %.3s%n", employee.getName());
