@@ -13,7 +13,6 @@ public class SalaryServiceV3 {
     PensionService pensionService;
 
 
-
     public double netSalary(Employee employee) {
         double salarioBruto = employee.getGrossSalary() -
                                  taxService.tax(employee.getGrossSalary()) -
