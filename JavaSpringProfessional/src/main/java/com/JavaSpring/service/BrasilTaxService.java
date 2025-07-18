@@ -1,9 +1,9 @@
 package com.JavaSpring.service;
 
-public class TaxService {
+public class BrasilTaxService extends TaxService {
 
     public double tax(double amount) {
-        return amount * 0.2;
+        return amount * 0.3;
 
     }
 

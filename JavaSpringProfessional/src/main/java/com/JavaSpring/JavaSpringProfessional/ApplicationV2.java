@@ -1,6 +1,7 @@
 package com.JavaSpring.JavaSpringProfessional;
 
 import com.JavaSpring.entities.Employee;
+import com.JavaSpring.service.BrasilTaxService;
 import com.JavaSpring.service.PensionService;
 import com.JavaSpring.service.SalaryServiceV2;
 import com.JavaSpring.service.TaxService;
@@ -17,7 +18,7 @@ public class ApplicationV2 {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 
-		TaxService taxService = new TaxService();
+		TaxService taxService = new BrasilTaxService();
 		PensionService pensionService = new PensionService();
 
 		System.out.printf("\nInforme o nome: ");
