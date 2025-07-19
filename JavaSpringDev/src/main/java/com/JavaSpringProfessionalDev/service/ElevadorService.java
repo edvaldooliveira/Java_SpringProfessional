@@ -1,5 +1,7 @@
 package com.JavaSpringProfessionalDev.service;
 
-public class Elevador {
-    
+public class ElevadorService {
+
+
+
 }
