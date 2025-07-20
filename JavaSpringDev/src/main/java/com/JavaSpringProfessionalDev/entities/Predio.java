@@ -1,8 +1,10 @@
 package com.JavaSpringProfessionalDev.entities;
 
 
-public class Predio {
+import java.util.Objects;
 
+public class Predio {
+    private String nome;
     private Integer qtdPessoas;
 
     private Integer  qtdAndares;
@@ -15,12 +17,13 @@ public class Predio {
     public Predio() {
     }
 
-    public Predio(Double valorApartamento, Double valorCondominio, Integer qtdPessoas, Integer qtdAndares, Integer qtdGaragem) {
+    public Predio(String nome, Double valorApartamento, Double valorCondominio, Integer qtdPessoas, Integer qtdAndares, Integer qtdGaragem) {
         this.valorApartamento = valorApartamento;
         this.valorCondominio = valorCondominio;
         this.qtdPessoas = qtdPessoas;
         this.qtdAndares = qtdAndares;
         this.qtdGaragem = qtdGaragem;
+        this.nome = nome;
     }
 
     public Double getValorApartamento() {
@@ -63,17 +66,30 @@ public class Predio {
         this.qtdGaragem = qtdGaragem;
     }
 
+    public String getNome() {
+        return nome;
+    }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     @Override
-    public String toString() {
-        return "Predio{" +
-                "valorApartamento=" + valorApartamento +
-                ", valorCondominio=" + valorCondominio +
-                ", qtdPessoas=" + qtdPessoas +
-                ", qtdAndares=" + qtdAndares +
-                ", qtdGaragem=" + qtdGaragem +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Predio predio = (Predio) o;
+        return Objects.equals(qtdPessoas, predio.qtdPessoas) &&
+                Objects.equals(qtdAndares, predio.qtdAndares) &&
+                Objects.equals(qtdGaragem, predio.qtdGaragem) &&
+                Objects.equals(valorApartamento, predio.valorApartamento) &&
+                Objects.equals(valorCondominio, predio.valorCondominio);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(qtdPessoas, qtdAndares, qtdGaragem, valorApartamento, valorCondominio);
+    }
+
 }
 
