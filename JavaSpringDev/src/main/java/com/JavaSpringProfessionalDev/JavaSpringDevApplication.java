@@ -1,7 +1,8 @@
 package com.JavaSpringProfessionalDev;
 
+import com.JavaSpringProfessionalDev.entities.Pessoa;
 import com.JavaSpringProfessionalDev.entities.Predio;
-import com.JavaSpringProfessionalDev.service.PredioService;
+import com.JavaSpringProfessionalDev.service.PredioEPessoaService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,18 +19,14 @@ public class JavaSpringDevApplication  implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Predio predio = new Predio(
-				3500.0,
-				1500.0,
-				    350,
-				    100,
-				   150);
+		Predio predio = new Predio(3500.0, 1500.0, 350, 100, 150);
 
-		PredioService predioService = new PredioService();
+		Pessoa pessoa = new Pessoa("Isaac Victor Rocha Oliveira", "775819111-87");
+		PredioEPessoaService prediosEPessoasService = new PredioEPessoaService();
 
-		predioService.adicionarPredio(predio);
+		prediosEPessoasService.adicionarPredioEPessoa(predio, pessoa);
 
-		predioService.imprimirDadosDoPredio();
+		prediosEPessoasService.imprimirDadosDoPredioEDePessoa();
 
 
 
