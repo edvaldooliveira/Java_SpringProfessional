@@ -2,10 +2,12 @@ package com.JavaSpringProfessionalDev.service;
 
 import com.JavaSpringProfessionalDev.entities.Pessoa;
 import com.JavaSpringProfessionalDev.entities.Predio;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class PredioEPessoaService {
 
     private List<Pessoa> listaPessoa = new ArrayList<>();

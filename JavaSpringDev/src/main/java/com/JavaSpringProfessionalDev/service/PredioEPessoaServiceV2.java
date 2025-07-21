@@ -2,13 +2,18 @@ package com.JavaSpringProfessionalDev.service;
 
 import com.JavaSpringProfessionalDev.entities.Pessoa;
 import com.JavaSpringProfessionalDev.entities.Predio;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@Service
 public class PredioEPessoaServiceV2 {
+
+    @Autowired
+    private PredioService predioService;
 
     Map<Predio, List<Pessoa>> prediosComMoradores = new HashMap<>();
 
@@ -31,9 +36,14 @@ public class PredioEPessoaServiceV2 {
            System.out.printf("Valor Apartamento: R$ %.2f%n", predio.getValorApartamento());
            System.out.printf("Valor Condomínio: R$ %.2f%n", predio.getValorCondominio());
 
+
+          System.out.printf("Despesas predio: R$ %.2f%n", predioService.somarDespesas(predio));
+
+
            System.out.println("\n--- Dados de Moradores ---");
            for (Pessoa pessoa : moradores){
                System.out.printf("Nome: %s | CPF: %s%n", pessoa.getNome(), pessoa.getCpf());
+
            }
 
        }

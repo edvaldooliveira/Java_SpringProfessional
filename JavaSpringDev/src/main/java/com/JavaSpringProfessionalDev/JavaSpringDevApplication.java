@@ -4,6 +4,8 @@ import com.JavaSpringProfessionalDev.entities.Pessoa;
 import com.JavaSpringProfessionalDev.entities.Predio;
 import com.JavaSpringProfessionalDev.service.PredioEPessoaService;
 import com.JavaSpringProfessionalDev.service.PredioEPessoaServiceV2;
+import com.JavaSpringProfessionalDev.service.PredioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,11 +15,12 @@ import java.util.Locale;
 @SpringBootApplication
 public class JavaSpringDevApplication  implements CommandLineRunner {
 
+	@Autowired
+	PredioEPessoaServiceV2 predioEPessoaServiceV2;
+
 	public static void main(String[] args) {SpringApplication.run(JavaSpringDevApplication.class, args);
 
-
 	}
-
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -31,8 +34,6 @@ public class JavaSpringDevApplication  implements CommandLineRunner {
 
 		Pessoa pessoae = new Pessoa("Edvaldo Ferreira de Oliveira", "775819111-99");
 		Pessoa pessoad = new Pessoa("Djane Ferreira de Oliveira", "775819111-77");
-
-		PredioEPessoaServiceV2 predioEPessoaServiceV2 = new PredioEPessoaServiceV2();
 
 		predioEPessoaServiceV2.adicionarMoradorAoPredio(predio,pessoa);
 		predioEPessoaServiceV2.adicionarMoradorAoPredio(predio,pessoai);
