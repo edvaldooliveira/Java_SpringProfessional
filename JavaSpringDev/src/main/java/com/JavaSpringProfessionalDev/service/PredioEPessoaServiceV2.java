@@ -37,7 +37,7 @@ public class PredioEPessoaServiceV2 {
            System.out.printf("Valor Condomínio: R$ %.2f%n", predio.getValorCondominio());
 
           System.out.printf("Despesas predio: R$ %.2f%n", predioService.somarDespesas(predio));
-          
+
            System.out.println("\n--- Dados de Moradores ---");
            for (Pessoa pessoa : moradores){
                System.out.printf("Nome: %s | CPF: %s%n", pessoa.getNome(), pessoa.getCpf());
